@@ -20,6 +20,6 @@ def ping():
     url = "http://odpad-praha8.rhcloud.com/status"
     try:
         result = urllib2.urlopen(url)
-        return jsonify(json.loads(result.read()))
+        return jsonify(result='ok', message='server pinged')
     except urllib2.URLError, e:
-        return jsonify({'error': e.message})
+        return jsonify(result='error', message=e.message)
